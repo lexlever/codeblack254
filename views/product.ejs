@@ -1,0 +1,20 @@
+
+<%- include ('partial/header') -%>
+<div class="row">
+    <div class="page-header"><%= p.title %> </div>
+    <div class="col-xs-12 col-md-5">
+        <img src="<%= p.imgSrc %>" alt="" class="spi">
+    </div>
+    <div class="col-xs-12 col-md-7">
+        <p><%= p.desc %> </p>
+        <p>$<%= parseFloat(p.price).toFixed(2) %> </p>
+        <p><a href="/cart/add/<%= p.slog %> ">Add to cart</a></p>
+
+    </div>
+    <div class="col-xs-12 col-md-5">
+
+            <img src="<%= p.multipleSrc %>" alt="" class="spi">
+    </div>
+</div>
+<%- include ('partial/footer') -%>
+

@@ -1,0 +1,45 @@
+
+<%- include ('../partial/adminheader') -%>
+<h2 class="page_title">
+    Products
+</h2>
+<a href="/admin/products/add-product" class="btn btn-primary">
+Add a new product
+</a>
+<br><br>
+
+<% if(count > 0) {%> 
+
+<table class="table table-stripped alignmiddle">
+    
+    <thead>
+        <tr class="home">
+            <th>Product</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Product Image</th>
+            <th>additional image</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% products.forEach(function(product){ %>
+        <tr>
+            <td><%= product.title %></td>
+            <td>$<%= parseFloat(product.price).toFixed(2) %></td>
+            <td><%= product.category %></td>
+            <td><img src="<%= product.imgSrc %>" alt="" class="ui small image"></td>
+            <td><img src="<%= product.multipleSrc %> "  alt="" class="ui small image"></td>
+            <td><a class="deletion" href="/admin/products/delete-product/<%= product._id %>">Delete</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+
+</table>
+<% } else  {%>
+
+    <h3 class="text-center">There are no products here</h3>
+<% } %>  
+
+<%- include ('../partial/adminfooter') -%>
+

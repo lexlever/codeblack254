@@ -1,0 +1,37 @@
+
+<%- include ('../partial/adminheader') -%>
+<h2 class="page_title">
+    Category
+</h2>
+<a href="/admin/category/add-category" class="btn btn-primary">
+Add a new category
+</a>
+<br><br>
+
+<table class="table table-stripped sorting">
+    
+    <thead>
+        <tr class="home">
+            <th>Title</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% categories.forEach((cat) => { %>
+        <tr>
+            <td><%= cat.title %></td>
+            <td><a href="/admin/category/edit-category/<%= cat._id %>">Edit</a></td>
+                <td><a class="deletion" href="/admin/category/delete-category/<%= cat._id %>">Delete</a></td> 
+            
+                </tr>
+            <% }) %>  
+    </tbody>
+
+</table>
+
+
+
+
+<%- include ('../partial/adminfooter') -%>
+
